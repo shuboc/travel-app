@@ -1,8 +1,8 @@
-// TODO: import form handler
-// TODO: add event listener to button
+import { formHandler } from './formHandler'
 
 const app = async () => {
-  console.log('hello world!');
+  const submit = document.getElementById('submit');
+  submit.addEventListener('click', formHandler);
 }
 
 export { app };
