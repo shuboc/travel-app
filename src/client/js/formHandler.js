@@ -1,4 +1,4 @@
-import {fetchLatLng, fetchWeather} from './api';
+import {fetchLatLng, fetchWeather, fetchImage} from './api';
 
 const formHandler = async (e) => {
   e.preventDefault();
@@ -40,7 +40,11 @@ const formHandler = async (e) => {
 
     // fetch weather forecast
     const weatherRes = await fetchWeather(latLng.lat, latLng.lng, daysFromNow);
-    console.log(weatherRes);
+
+    // fetch place image
+    const imageRes = await fetchImage(placeName);
+
+    // TODO: clear form
 
     // TODO: update UI
   } catch (e) {
