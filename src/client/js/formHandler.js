@@ -28,18 +28,12 @@ const formHandler = async (e) => {
     return;
   }
 
-  const daysFromNow = (date - now) / (24 * 60 * 60 * 1000);
-  if (daysFromNow > 16) {
-    alert('Can only get the weather within 16 days!');
-    return;
-  }
-
   try {
     // Get lat and lng
     const latLng = await fetchLatLng(placeName);
 
     // fetch weather forecast
-    const weatherRes = await fetchWeather(latLng.lat, latLng.lng, daysFromNow);
+    const weatherRes = await fetchWeather(latLng.lat, latLng.lng, date);
 
     // fetch place image
     const imageRes = await fetchImage(placeName);
