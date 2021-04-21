@@ -1,6 +1,9 @@
 // import main function
 import { app } from './js/app';
-// TODO: import scss
+
+// import scss
+import './styles/resets.scss';
+import './styles/style.scss';
 
 app();
 

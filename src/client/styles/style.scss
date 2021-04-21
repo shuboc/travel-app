@@ -1,0 +1,81 @@
+.title {
+  padding: 32px 16px;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.form {
+  background-color: #eee;
+  padding: 32px 16px;
+  font-size: 18px;
+}
+
+.row {
+  margin-bottom: 8px;
+}
+
+.input {
+  border: none;
+  background: none;
+  height: 24px;
+}
+
+.input::placeholder {
+  font-size: 18px;
+}
+
+#submit {
+  background-color: white;
+}
+
+#submit:hover {
+  background-color: lightgray;
+}
+
+.trip {
+  background-color: lightpink;
+  padding: 32px 0;
+}
+
+.img {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.trip-info {
+  display: block;
+  padding: 0 16px;
+}
+
+.place {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.date {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.days-from-now {
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.weather-title {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.weather {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.weather-icon {
+  width: 16px;
+  height: 16px;
+  margin-left: 4px;
+}

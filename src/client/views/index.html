@@ -7,12 +7,21 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>Weather App</h1>
-  <form>
-    <label>Place Name:</label>
-    <input type="text" placeholder="Tokyo" id="placename">
-    <input id="date" type="date">
-    <input type="submit" value="Submit" id="submit">
+  <h1 class="title">Travel Planner</h1>
+  <div id="trips"></div>
+  <form class="form">
+    <div class="row">
+      <label>My Trip to: </label>
+      <input class="input" type="text" placeholder="Enter Location" id="placename">
+    </div>
+    <div class="row">
+      <label>Departing: </label>
+      <input class="input" id="date" type="date">
+    </div>
+    <div class="row">
+      <input type="submit" value="Add a Trip" id="submit">
+      <input type="button" value="Reset" id="reset-btn">
+    </div>
   </form>
 </body>
 </html>
