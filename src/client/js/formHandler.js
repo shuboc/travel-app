@@ -24,6 +24,15 @@ const createTripElement = (largeImageURL, placeName, date, weatherRes) => {
   dateEl.textContent = `Departing: ${date.toLocaleDateString()}`;
   tripInfoEl.appendChild(dateEl);
 
+  const removeBtn = document.createElement('button');
+  removeBtn.className = 'remove-btn';
+  removeBtn.addEventListener('click', () => {
+    const ans = confirm('Are you sure to remove this trip?')
+    if (ans) tripEl.remove();
+  })
+  removeBtn.textContent = 'Remove Trip';
+  tripInfoEl.appendChild(removeBtn);
+
   const daysFromNowEl = document.createElement('p');
   daysFromNowEl.className = 'days-from-now';
   const daysFromNow = getDaysFromNow(date);
