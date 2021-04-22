@@ -1,10 +1,32 @@
-# Weather-Journal App Project
+# Travel Planner Project
 
-## Overview
-This project requires you to create an asynchronous web app that uses Web API and user data to dynamically update the UI. 
+## Suggestions to Make Your Project Stand Out!
 
-## Instructions
-This will require modifying the `server.js` file and the `website/app.js` file. You can see `index.html` for element references, and once you are finished with the project steps, you can use `style.css` to style your application to customized perfection.
+* Allow the user to remove the trip.
+* Incorporate icons into forecast. (Only works for travels that depart within 7 days)
 
-## Extras
-If you are interested in testing your code as you go, you can use `tests.js` as a template for writing and running some basic tests for your code.
+## Node Version
+
+Suggested Node.js version: 14.16.1 (LTS)
+
+## Install
+
+`npm install`
+
+## Run
+
+### Dev mode
+
+`npm run build-dev`
+
+### Prod mode
+
+`npm run build-prod`
+
+### API Server
+
+`npm start`
+
+## Test
+
+`npm run test`
