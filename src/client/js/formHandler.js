@@ -1,5 +1,5 @@
 import {fetchLatLng, fetchWeather, fetchImage} from './api';
-import { getDaysFromNow, padZero } from './dateUtil';
+import { getDaysFromNow, padZero, parseDate } from './dateUtil';
 
 const createTripElement = (largeImageURL, placeName, date, weatherRes) => {
   const tripEl = document.createElement('div');
@@ -76,14 +76,10 @@ const onSubmit = async (e) => {
     return;
   }
 
-  const [year, month, day] = dateStr.split('-').map(str => parseInt(str, 10));
-  const now = new Date();
-  const date = new Date();
-  date.setFullYear(year);
-  date.setMonth(month - 1);
-  date.setDate(day);
+  const date = parseDate(dateStr);
 
   // verify future date
+  const now = new Date();
   if (date <= now) {
     alert('Please enter a future date!');
     return;
