@@ -27,28 +27,4 @@ app.listen(8081, function () {
     console.log('Example app listening on port 8081!')
 })
 
-// app.post('/api', function(req, res) {
-//     const { url } = req.body;
-//     console.log(req.body);
-//     console.log(url);
-
-//     const form = new FormData();
-//     form.append('key', process.env.API_KEY);
-//     form.append('lang', 'auto');
-//     form.append('url', url);
-
-//     const formHeaders = form.getHeaders();
-
-//     axios.post('https://api.meaningcloud.com/sentiment-2.1', form, {
-//         headers: {
-//             ...formHeaders
-//         },
-//     })
-//     .then(response => {
-//         console.log(response.data);
-//         res.send(JSON.stringify({ data: response.data }))
-//     })
-//     .catch(err => {
-//         console.error(err.response.data);
-//     })
-// })
+module.exports = app;
