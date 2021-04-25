@@ -6,9 +6,6 @@ describe('express server', () => {
   beforeEach(function () {
     server = require('../server');
   });
-  afterEach(function () {
-    server.close();
-  });
   it('responds to /', function(done) {
     request(server)
       .get('/')

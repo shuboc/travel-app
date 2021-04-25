@@ -22,15 +22,6 @@ app.use(cors());
 
 app.use(express.static('dist'))
 
-app.get('/', function (req, res) {
-    res.sendFile('dist/index.html')
-})
-
-// designates what port the app will listen to for incoming requests
-const server = app.listen(8081, function () {
-    console.log('Example app listening on port 8081!')
-})
-
 app.get('/data', (req, res) => {
     res.send(projectData);
 });
@@ -65,4 +56,4 @@ app.post('/data', async (req, res) => {
     res.send(data);
 });
 
-module.exports = server;
+module.exports = app;
