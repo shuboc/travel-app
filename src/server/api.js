@@ -2,14 +2,14 @@ const fetch = require('node-fetch');
 const {getDaysFromNow, padZero} = require('./dateUtil');
 
 const GEONAMES_API_URL = 'http://api.geonames.org/search'
-const GEONAMES_USER_ACCOUNT = 'shubochao'
+const GEONAMES_USER_ACCOUNT = process.env.GEONAMES_USER_ACCOUNT
 
 const WEATHERBIT_CURRENT_WEATHER_API_URL = 'https://api.weatherbit.io/v2.0/current';
 const WEATHERBIT_CLIMATE_NORMALS_API_URL = 'https://api.weatherbit.io/v2.0/normals';
-const WEATHERBIT_API_KEY = '7326d011a9e44dcd85007538c215a98c'
+const WEATHERBIT_API_KEY = process.env.WEATHERBIT_API_KEY;
 
 const PIXABAY_API_URL = 'https://pixabay.com/api/';
-const PIXABAY_API_KEY = '21227641-0c8ea71b028b2b238a64b623a';
+const PIXABAY_API_KEY = process.env.PIXABAY_API_KEY;
 
 const fetchLatLng = async (placeName) => {
   const res = await fetch(`${GEONAMES_API_URL}?username=${GEONAMES_USER_ACCOUNT}&q=${placeName}&type=json`)

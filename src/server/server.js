@@ -3,12 +3,12 @@ const projectData = [];
 const path = require('path')
 const express = require('express')
 const dotenv = require('dotenv');
+dotenv.config();
+
 const axios = require('axios');
 const FormData = require('form-data');
 const {fetchLatLng, fetchWeather, fetchImage} = require('./api');
 const {getDaysFromNow} = require('./dateUtil');
-
-dotenv.config();
 
 const app = express()
 
