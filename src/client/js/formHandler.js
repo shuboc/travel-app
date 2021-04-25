@@ -1,7 +1,7 @@
-import {fetchLatLng, fetchWeather, fetchImage} from './api';
-import { getDaysFromNow, padZero, parseDate } from './dateUtil';
+import { fetchLatLng, fetchWeather, fetchImage, addTrip, fetchTrips } from './api';
+import { parseDate } from './parseDate';
 
-const createTripElement = (largeImageURL, placeName, date, weatherRes) => {
+const createTripElement = (largeImageURL, placeName, date, weatherRes, daysFromNow) => {
   const tripEl = document.createElement('div');
   tripEl.className = "trip";
 
@@ -35,7 +35,6 @@ const createTripElement = (largeImageURL, placeName, date, weatherRes) => {
 
   const daysFromNowEl = document.createElement('p');
   daysFromNowEl.className = 'days-from-now';
-  const daysFromNow = getDaysFromNow(date);
   daysFromNowEl.textContent = `${placeName} is ${daysFromNow} days away`;
   tripInfoEl.appendChild(daysFromNowEl);
 
@@ -86,24 +85,16 @@ const onSubmit = async (e) => {
   }
 
   try {
-    // Get lat and lng
-    const latLng = await fetchLatLng(placeName);
-
-    // fetch weather forecast
-    const weatherRes = await fetchWeather(latLng.lat, latLng.lng, date);
-
-    // fetch place image
-    const imageRes = await fetchImage(placeName);
+    const trip = await addTrip(placeName, dateStr, date);
 
     // append a trip
-    const tripEl = createTripElement(imageRes.largeImageURL, placeName, date, weatherRes);
+    const tripEl = createTripElement(trip.largeImageURL, trip.placeName, new Date(trip.timestamp), trip.weather, trip.daysFromNow);
     const tripsEl = document.getElementById('trips');
     tripsEl.prepend(tripEl);
 
     // clear form
     onClear();
   } catch (e) {
-    // TODO: show error message on UI
     console.log(e);
   }
 }
