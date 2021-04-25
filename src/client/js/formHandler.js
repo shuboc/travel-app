@@ -1,7 +1,7 @@
 import { fetchLatLng, fetchWeather, fetchImage, addTrip, fetchTrips } from './api';
 import { parseDate } from './parseDate';
 
-const createTripElement = (largeImageURL, placeName, date, weatherRes, daysFromNow) => {
+export const createTripElement = (largeImageURL, placeName, date, weatherRes, daysFromNow) => {
   const tripEl = document.createElement('div');
   tripEl.className = "trip";
 
