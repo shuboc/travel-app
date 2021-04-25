@@ -43,7 +43,7 @@ const fetchWeather = async (lat, lon, date) => {
 
 const fetchImage = async (query) => {
   const q = query.split(' ').join('+');
-  const res = await fetch(`${PIXABAY_API_URL}?key=${PIXABAY_API_KEY}&q=${q}`);
+  const res = await fetch(`${PIXABAY_API_URL}?key=${PIXABAY_API_KEY}&q=${q}&category=places&image_type=photo`);
   const json = await res.json();
   return json.hits.length > 0 ? json.hits[0] : undefined;
 }
