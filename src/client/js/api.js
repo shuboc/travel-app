@@ -15,10 +15,24 @@ const addTrip = async (placeName, dateStr, date) => {
   return json;
 }
 
+const removeTrip = async (placeName) => {
+  const res = await fetch(API_URL, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      placeName,
+    }),
+  });
+  const json = await res.json();
+  return json;
+}
+
 const fetchTrips = async () => {
   const res = await fetch(API_URL);
   const json = await res.json();
   return json;
 };
 
-export {addTrip, fetchTrips}
+export {addTrip, fetchTrips, removeTrip}

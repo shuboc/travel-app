@@ -1,4 +1,4 @@
-const projectData = [];
+let projectData = [];
 
 const path = require('path')
 const express = require('express')
@@ -55,5 +55,11 @@ app.post('/data', async (req, res) => {
 
     res.send(data);
 });
+
+app.delete('/data', async (req, res) => {
+    const {placeName} = req.body;
+    projectData = projectData.filter(trip => trip.placeName !== placeName);
+    res.send('Deleted!');
+})
 
 module.exports = app;

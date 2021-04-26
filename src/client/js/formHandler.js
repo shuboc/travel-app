@@ -1,4 +1,4 @@
-import { fetchLatLng, fetchWeather, fetchImage, addTrip, fetchTrips } from './api';
+import { addTrip, fetchTrips, removeTrip } from './api';
 import { parseDate } from './parseDate';
 
 export const createTripElement = (largeImageURL, placeName, date, weatherRes, daysFromNow) => {
@@ -26,9 +26,13 @@ export const createTripElement = (largeImageURL, placeName, date, weatherRes, da
 
   const removeBtn = document.createElement('button');
   removeBtn.className = 'remove-btn';
-  removeBtn.addEventListener('click', () => {
+  removeBtn.addEventListener('click', async () => {
     const ans = confirm('Are you sure to remove this trip?')
-    if (ans) tripEl.remove();
+    if (ans) {
+      tripEl.remove();
+      const res = await removeTrip(placeName);
+      console.log(res);
+    }
   })
   removeBtn.textContent = 'Remove Trip';
   tripInfoEl.appendChild(removeBtn);
